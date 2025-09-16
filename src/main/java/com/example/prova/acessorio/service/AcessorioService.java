@@ -19,15 +19,6 @@ public class AcessorioService {
 
     public Optional<Acessorio> buscarAcessorioPorId(Long id) { return repositorioAcessorio.findById(id); }
 
-    public Acessorio criarAcessorio(Acessorio acessorio) { return repositorioAcessorio.save(acessorio); }
-
-    public Optional<Acessorio> atualizarAcessorio(Long id, Acessorio informacoes) {
-        return repositorioAcessorio.findById(id).map(acessorio -> {
-            acessorio.setNome(informacoes.getNome());
-            return repositorioAcessorio.save(acessorio);
-        });
-    }
-
     public boolean deletarAcessorio(Long id) {
         return repositorioAcessorio.findById(id).map(acessorio -> {
             repositorioAcessorio.delete(acessorio);

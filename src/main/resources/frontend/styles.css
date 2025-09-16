@@ -1,0 +1,58 @@
+body {
+    font-family: Arial;
+    /*background:  linear-gradient(to bottom, #ffffff, #787878);*/
+    background-image: url('concessionaria.jpg');
+    margin: 0;
+    min-height: 97vh
+
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    gap: 11px;
+    margin-bottom: 12px;
+    justify-content: center;
+}
+
+input, button {
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 4px;
+
+}
+
+button {
+    background: #787878;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background: #616161;
+}
+
+#lista-veiculos {
+    list-style: none;
+    padding: 0;
+}
+
+#lista-veiculos li {
+    background: white;
+    margin: 12px auto;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 0 9px rgba(0,0,0,0.5);
+    max-width: 560px;
+}

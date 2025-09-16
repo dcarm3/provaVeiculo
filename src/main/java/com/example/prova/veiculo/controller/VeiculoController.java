@@ -10,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/veiculos")
+@CrossOrigin
 public class VeiculoController {
     private final VeiculoService veiculoService;
 
@@ -51,13 +52,15 @@ public class VeiculoController {
     }
 
     //-----------------Adicionar-e-remover-acessorios-do-veículo------------------
-    @PostMapping("/{idVeiculo}/acessorios") //adiciona
-    public ResponseEntity<Veiculo> adicionarAcessorio(@PathVariable Long idVeiculo, @RequestBody Acessorio acessorio) {
+    @PostMapping("/{idVeiculo}/acessorios")
+    public ResponseEntity<Veiculo> adicionarAcessorio(@PathVariable Long idVeiculo,
+                                                      @RequestBody Acessorio acessorio) {
         return ResponseEntity.ok(veiculoService.adicionarAcessorio(idVeiculo, acessorio));
     }
 
-    @DeleteMapping("/{idVeiculo}/acessorios/{acessorioId}") //remove
-    public ResponseEntity<Veiculo> removerAcessorio(@PathVariable Long idVeiculo, @PathVariable Long acessorioId) {
-        return ResponseEntity.ok(veiculoService.removerAcessorio(idVeiculo, acessorioId));
+    @DeleteMapping("/{idVeiculo}/acessorios/{idAcessorio}")
+    public ResponseEntity<Veiculo> removerAcessorio(@PathVariable Long idVeiculo,
+                                                    @PathVariable Long idAcessorio) {
+        return ResponseEntity.ok(veiculoService.removerAcessorio(idVeiculo, idAcessorio));
     }
 }

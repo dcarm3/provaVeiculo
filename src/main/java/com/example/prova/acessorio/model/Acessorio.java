@@ -1,5 +1,6 @@
 package com.example.prova.acessorio.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.*;
 import com.example.prova.veiculo.model.Veiculo;
@@ -15,5 +16,6 @@ public class Acessorio{
 
     @ManyToOne //os veiculos podem ter nenhum ou muitos acessorios
     @JoinColumn(name = "IdVeiculo")
+    @JsonBackReference
     private Veiculo veiculo;
 }

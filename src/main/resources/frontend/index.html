@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Concessionária muito massa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Concessionária Qual a boa?</h1>
+
+<section>
+    <h2>Cadastrar Veículo</h2>
+    <form id="form-veiculo">
+        <input type="text" id="modelo" placeholder="Modelo" required>
+        <input type="text" id="placa" placeholder="Placa" required>
+        <input type="number" id="anoFabricacao" placeholder="Ano de Fabricação" required>
+        <button type="submit">Adicionar Veículo Novo</button>
+    </form>
+</section>
+
+<section>
+    <h2>Adicionar Acessório a um Veículo</h2>
+    <form id="form-acessorio">
+        <input type="number" id="veiculoId" placeholder="ID do Veículo" required>
+        <input type="text" id="acessorioNome" placeholder="Nome do Acessório" required>
+        <button type="submit">Adicionar Acessório a Veiculo</button>
+    </form>
+</section>
+
+<section>
+    <h2>Lista de Veículos</h2>
+    <ul id="lista-veiculos"></ul>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -41,26 +41,21 @@ public class VeiculoService {
         }).orElse(false);
     }
 
-    //-----------------Adicionar-e-remover-acessorios-do-veículo------------------
-    public Veiculo adicionarAcessorio(Long idVeiculo, Acessorio acessorio) { //adicionar
+    //-----------------Adicionar-e-remover-acessorios-do-veiculo------------------
+
+    public Veiculo adicionarAcessorio(Long idVeiculo, Acessorio acessorio) {
         Veiculo veiculo = repositorioVeiculo.findById(idVeiculo)
-                .orElseThrow(() -> new RuntimeException("o veículo especificado não foi encontrado!!!"));
-        acessorio.setVeiculo(veiculo);
-        veiculo.getAcessorios().add(acessorio);
-        repositorioAcessorio.save(acessorio);
+                .orElseThrow(() -> new RuntimeException("o veiculo nao foi encontrado"));
+        veiculo.adicionarAcessorio(acessorio);
         return repositorioVeiculo.save(veiculo);
     }
 
-    public Veiculo removerAcessorio(Long idVeiculo, Long idAcessorio) { //remover
+    public Veiculo removerAcessorio(Long idVeiculo, Long idAcessorio) {
         Veiculo veiculo = repositorioVeiculo.findById(idVeiculo)
-                .orElseThrow(() -> new RuntimeException("o veículo especificado não foi encontrado!!!"));
-        Acessorio acessorio = repositorioAcessorio.findById(idAcessorio)
-                .orElseThrow(() -> new RuntimeException("o acessorio especificado não foi encontrado!!!"));
-        if (!veiculo.getAcessorios().contains(acessorio)) {
-            throw new RuntimeException("esse acessorio não pertence a esse veiculo especificado!!!");
-        }
-        veiculo.getAcessorios().remove(acessorio); //remove o acessorio do veiculo
-        repositorioAcessorio.delete(acessorio); //deleta o acessorio
-        return repositorioVeiculo.save(veiculo); //e atualizaz o veiculo para não ter mais o acessório
+                .orElseThrow(() -> new RuntimeException("o veiculo nao foi encontrdo"));
+
+        veiculo.getAcessorios().removeIf(a -> a.getId().equals(idAcessorio));
+
+        return repositorioVeiculo.save(veiculo);
     }
 }
